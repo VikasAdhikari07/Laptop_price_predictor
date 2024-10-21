@@ -38,7 +38,7 @@ resolution = st.selectbox('Screen Resolution',
                            '2560x1440', '2304x1440'])
 
 ## CPU
-cpu = st.selectbox("CPU", df['CPU'].unique())
+cpu = st.selectbox("CPU", df['Cpu brand'].unique())
 
 ## HDD
 hdd = st.selectbox("HDD(in GB)", [0, 32, 128, 256, 512, 1024, 2048])
@@ -48,10 +48,10 @@ hdd = st.selectbox("HDD(in GB)", [0, 32, 128, 256, 512, 1024, 2048])
 ssd = st.selectbox("SSD(in GB)", [0, 32, 128, 256, 512, 1024, 2048])
 
 ## GPU Name
-gpu = st.selectbox("Graphic Card", df["GPU Name"].unique())
+gpu = st.selectbox("Graphic Card", df["Gpu brand"].unique())
 
 ## Operating System
-os = st.selectbox('Operating System', df['Operating System'].unique())
+os = st.selectbox('Operating System', df['os'].unique())
 
 if st.button("Predict Price"):
     try:
@@ -72,7 +72,7 @@ if st.button("Predict Price"):
 
         query = np.array([company, type, ram, weight, touchscreen, ips, ppi, cpu, ssd, hdd, gpu, os])
         query = query.reshape(1,12)
-        st.title("The Price of the Laptop the given configuration is "+ str(math.floor((pipe.predict(query)[0])**3)))
+        st.title("The Price of the Laptop the given configuration is "+ str(round(np.exp(pipe.predict(query)[0]))))
     except :
         st.title("Please Provide correct details.")
 
