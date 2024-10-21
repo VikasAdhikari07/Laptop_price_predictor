@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 altair==4.2.0
 attrs==22.1.0
 blinker==1.5
@@ -51,3 +52,7 @@ urllib3==1.26.13
 validators==0.20.0
 watchdog==2.2.0
 zipp==3.11.0
+=======
+streamlit
+sklearn
+>>>>>>> a5f7381575a239eecb538e56fabc1c7e20a46cc7
